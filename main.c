@@ -66,7 +66,7 @@ int localiza_nome_paciente(FILE *f, char nome[50])
     }
     else
     {
-        printf("\nPaciente n√£o encontrado\n");
+        printf("\nPaciente n„o encontrado\n");
         return -1;
     }
 }
@@ -95,7 +95,7 @@ int localiza_nome_medico(FILE *f, char nome[50])
     }
     else
     {
-        printf("\nM√©dico n√£o encontrado\n");
+        printf("\nMÈdico n„o encontrado\n");
         return -1;
     }
 }
@@ -126,7 +126,7 @@ int conferirConsulta (FILE *f, int codigo, int dia, int mes, int ano, int hora, 
                             {
                                 if((c.minutos - minutos) < 30)
                                 {
-                                    printf("As consultas devem ter pelo menos 30min de diferen√ßa\n");
+                                    printf("As consultas devem ter pelo menos 30min de diferenÁa\n");
                                     barrado = 1;
                                 }
                             }
@@ -134,17 +134,17 @@ int conferirConsulta (FILE *f, int codigo, int dia, int mes, int ano, int hora, 
                             {
                                 if((minutos - c.minutos) < 30)
                                 {
-                                    printf("As consultas devem ter pelo menos 30min de diferen√ßa\n");
+                                    printf("As consultas devem ter pelo menos 30min de diferenÁa\n");
                                     barrado = 1;
                                 }
                             }
                             if(c.minutos == minutos)
                             {
-                                printf("J√° existe uma consulta nesse hor√°rio\n");
+                                printf("J· existe uma consulta nesse hor·rio\n");
                                 barrado = 1;
                             }
                         }
-                        //Horas inserida menor que a que j√° existe, por√©m diferen√ßa menor que 30
+                        //Horas inserida menor que a que j· existe, porÈm diferenÁa menor que 30
                         if((c.hora - 1) == hora)
                         {
                             if(minutos >= 31)
@@ -153,7 +153,7 @@ int conferirConsulta (FILE *f, int codigo, int dia, int mes, int ano, int hora, 
                                 //min minutos == 0, max == 30
                                 if(((minutos) - c.minutos) > 30)
                                 {
-                                    printf("As consultas devem ter pelo menos 30min de diferen√ßa\n");
+                                    printf("As consultas devem ter pelo menos 30min de diferenÁa\n");
                                     barrado = 1;
                                 }
                             }
@@ -164,7 +164,7 @@ int conferirConsulta (FILE *f, int codigo, int dia, int mes, int ano, int hora, 
                             {
                                 if(((c.minutos) - minutos) > 30)
                                 {
-                                    printf("As consultas devem ter pelo menos 30min de diferen√ßa\n");
+                                    printf("As consultas devem ter pelo menos 30min de diferenÁa\n");
                                     barrado = 1;
                                 }
                             }
@@ -180,9 +180,13 @@ int conferirConsulta (FILE *f, int codigo, int dia, int mes, int ano, int hora, 
     {
         if(achou >= 2)
         {
-            printf("\nM√©dico j√° possui duas consultas no dia, cadastro cancelado\n");
+            printf("\nMÈdico j· possui duas consultas no dia, cadastro cancelado\n");
         }
         return 0;
+    }
+    else
+    {
+        return 16;
     }
 }
 
@@ -197,10 +201,10 @@ int main()
 
     if ((filemedicos = fopen("medicos.dat", "r+b"))==NULL) // arquivo existe
     {
-        printf("\nArquivo m√©dicos n√£o existe ... \ncriando arquivo!\n\n");
-        if((filemedicos = fopen("medicos.dat", "w+b"))==NULL) //arq n√£o existe
+        printf("\nArquivo mÈdicos n„o existe ... \ncriando arquivo!\n\n");
+        if((filemedicos = fopen("medicos.dat", "w+b"))==NULL) //arq n„o existe
         {
-            printf("Erro na cria√ß√£o do arquivo!!");
+            printf("Erro na criaÁ„o do arquivo!!");
             exit(1);
         }
         system("pause");
@@ -208,10 +212,10 @@ int main()
 
     if ((filepacientes = fopen("pacientes.dat", "r+b"))==NULL) // arquivo existe
     {
-        printf("\nArquivo pacientes n√£o existe ... \ncriando arquivo!\n\n");
-        if((filepacientes = fopen("pacientes.dat", "w+b"))==NULL) //arq n√£o existe
+        printf("\nArquivo pacientes n„o existe ... \ncriando arquivo!\n\n");
+        if((filepacientes = fopen("pacientes.dat", "w+b"))==NULL) //arq n„o existe
         {
-            printf("Erro na cria√ß√£o do arquivo!!");
+            printf("Erro na criaÁ„o do arquivo!!");
             exit(1);
         }
         system("pause");
@@ -219,10 +223,10 @@ int main()
 
     if ((fileconsultas = fopen("consultas.dat", "r+b"))==NULL) // arquivo existe
     {
-        printf("\nArquivo consultas n√£o existe ... \ncriando arquivo!\n\n");
-        if((fileconsultas = fopen("consultas.dat", "w+b"))==NULL) //arq n√£o existe
+        printf("\nArquivo consultas n„o existe ... \ncriando arquivo!\n\n");
+        if((fileconsultas = fopen("consultas.dat", "w+b"))==NULL) //arq n„o existe
         {
-            printf("Erro na cria√ß√£o do arquivo!!");
+            printf("Erro na criaÁ„o do arquivo!!");
             exit(1);
         }
         system("pause");
@@ -271,7 +275,7 @@ int main()
             break;
         default:
             system("CLS");
-            printf("\t\t\t\t\tOp√ß√£o Inv√°lida :(\n\n");
+            printf("\t\t\t\t\tOpÁ„o Inv·lida :(\n\n");
             break;
         }
         system("PAUSE");
@@ -291,21 +295,21 @@ void menu()
     printf("Escolha o que quer fazer:\n\n");
     printf("0- SAIR\n\n");
     printf("1- Cadastrar um novo paciente\n");
-    printf("2- Cadastrar um novo m√©dico\n");
+    printf("2- Cadastrar um novo mÈdico\n");
     printf("3- Cadastrar uma consulta\n");
     printf("4- Cancelar uma consulta\n");
     printf("5- Ver as consultas de um paciente\n");
-    printf("6- Ver as consultas de um m√©dico\n");
+    printf("6- Ver as consultas de um mÈdico\n");
     printf("7- Ver as consultas de um dia\n");
     printf("8- Ver todos pacientes\n");
-    printf("9- Ver todos os m√©dicos\n");
+    printf("9- Ver todos os mÈdicos\n");
     printf("10- Ver todas as consultas\n\n");
 }
 
 void imprime_medicos(FILE *f)
 {
     system("CLS");
-    printf("\t\t\t\tLista de M√©dicos\n\n");
+    printf("\t\t\t\tLista de MÈdicos\n\n");
     medico m;
     fseek(f,0,SEEK_SET);
 
@@ -314,7 +318,7 @@ void imprime_medicos(FILE *f)
     while (!feof(f))
     {
         printf("\nMedico: %s\n", m.nome);
-        printf("C√≥digo N¬∫: %d\n", m.codigo);
+        printf("CÛdigo N∫: %d\n", m.codigo);
         printf("Telefone: %d\n", m.telefone);
         printf("Especialidade: %s\n", m.esp);
         printf("\n");
@@ -350,17 +354,17 @@ int localiza_medico(FILE *f,int codigo)
 void inclui_medico(FILE *f)
 {
     system("CLS");
-    printf("\t\t\t\tCadastro de m√©dico");
+    printf("\t\t\t\tCadastro de mÈdico");
     medico m;
     //lendo os dados do teclado
-    printf("\nDigite o c√≥digo do m√©dico: ");
+    printf("\nDigite o cÛdigo do mÈdico: ");
     fflush(stdin);
     scanf("%d",&m.codigo);
 
     int posicao;
     posicao=localiza_medico(f,m.codigo);
 
-    if (posicao==-1) //n√£o tnha codigo no arquivo
+    if (posicao==-1) //n„o tnha codigo no arquivo
     {
         printf("\nNome: ");
         fflush(stdin);
@@ -388,9 +392,9 @@ void inclui_medico(FILE *f)
 
         int escolha;
 
-        printf("\t\t\t\tCadastro de m√©dico\n");
+        printf("\t\t\t\tCadastro de mÈdico\n");
         printf("0 - Finalizar\n\n");
-        printf("1 - Ver m√©dico cadastrado\n");
+        printf("1 - Ver mÈdico cadastrado\n");
         printf("O que fazer?\n");
         scanf("%i", &escolha);
 
@@ -400,30 +404,30 @@ void inclui_medico(FILE *f)
             {
             case 1:
                 system("CLS");
-                printf("\nM√©dico: %s\n", m.nome);
-                printf("C√≥digo N¬∫: %d\n", m.codigo);
+                printf("\nMÈdico: %s\n", m.nome);
+                printf("CÛdigo N∫: %d\n", m.codigo);
                 printf("Telefone: %d\n", m.telefone);
                 printf("Especialidade: %s\n", m.esp);
                 system("PAUSE");
                 system("CLS");
                 break;
             default:
-                printf("\nOp√ß√£o inv√°lida\n");
+                printf("\nOpÁ„o inv·lida\n");
                 system("PAUSE");
                 system("CLS");
                 break;
             }
 
-            printf("\t\t\t\tCadastro de m√©dico\n");
+            printf("\t\t\t\tCadastro de mÈdico\n");
             printf("0 - Finalizar\n\n");
-            printf("1 - Ver m√©dico cadastrado\n\n");
+            printf("1 - Ver mÈdico cadastrado\n\n");
             printf("O que fazer?\n");
             scanf("%i", &escolha);
         }
     }
     else
     {
-        printf("C√≥digo %d j√° existe no arquivo. Inclus√£o n√£o realizada!\n");
+        printf("CÛdigo %d j· existe no arquivo. Inclus„o n„o realizada!\n");
     }
     printf("\n");
 }
@@ -440,9 +444,9 @@ void imprime_paciente(FILE *f)
     while (!feof(f))
     {
         printf("\nPaciente: %s\n", p.nome);
-        printf("C√≥digo N¬∫: %d\n", p.codigo);
+        printf("CÛdigo N∫: %d\n", p.codigo);
         printf("Telefone: %d\n", p.telefone);
-        printf("Endere√ßo: Rua %s, N¬∫%s, %s-%s\n", p.enderecoRua, p.enderecoNumero, p.enderecoBairro, p.enderecoCidade);
+        printf("EndereÁo: Rua %s, N∫%s, %s-%s\n", p.enderecoRua, p.enderecoNumero, p.enderecoBairro, p.enderecoCidade);
         printf("Nascimento: %d/%d/%d\n\n", p.diaNascimento, p.mesNascimento, p.anoNascimento);
         printf("\n");
         fread(&p, sizeof(p),1, f);
@@ -480,14 +484,14 @@ void inclui_paciente(FILE *f)
     printf("\t\t\t\tCadastro de paciente");
     paciente p;
     //lendo os dados do teclado
-    printf("\nDigite o c√≥digo do paciente: ");
+    printf("\nDigite o cÛdigo do paciente: ");
     fflush(stdin);
     scanf("%d",&p.codigo);
 
     int posicao, diamesouano;
     posicao=localiza_paciente(f,p.codigo);
 
-    if (posicao==-1) //n√£o tnha codigo no arquivo
+    if (posicao==-1) //n„o tnha codigo no arquivo
     {
         printf("\nNome: ");
         fflush(stdin);
@@ -511,7 +515,7 @@ void inclui_paciente(FILE *f)
         fflush(stdin);
         gets(p.enderecoRua);
 
-        printf("\nN√∫mero de casa: ");
+        printf("\nN˙mero de casa: ");
         fflush(stdin);
         gets(p.enderecoNumero);
 
@@ -522,18 +526,18 @@ void inclui_paciente(FILE *f)
         scanf("%d", &p.diaNascimento );
         while(p.diaNascimento > 31 || p.diaNascimento < 1)
         {
-            printf("\nDia inv√°lido, tente novamente\n");
+            printf("\nDia inv·lido, tente novamente\n");
             printf("Dia de nascimento: ");
             scanf("%d", &p.diaNascimento );
         }
 
-        printf("M√™s de nascimento: ");
+        printf("MÍs de nascimento: ");
         fflush(stdin);
         scanf("%d", &p.mesNascimento );
         while(p.mesNascimento > 12 || p.mesNascimento < 1)
         {
-            printf("\nM√™s inv√°lido, tente novamente\n");
-            printf("M√™s de nascimento: ");
+            printf("\nMÍs inv·lido, tente novamente\n");
+            printf("MÍs de nascimento: ");
             scanf("%d", &p.mesNascimento );
         }
 
@@ -544,17 +548,17 @@ void inclui_paciente(FILE *f)
             if(p.diaNascimento > 29 || p.diaNascimento < 1)
             {
                 diamesouano = 0;
-                printf("\nN√£o existe o dia selecionado em Fevereiro\n");
+                printf("\nN„o existe o dia selecionado em Fevereiro\n");
                 printf("1 - mudar Dia\n");
-                printf("2 - mudar M√™s\n");
-                printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                printf("2 - mudar MÍs\n");
+                printf("Por favor, mude o dia ou o mÍs escolhido: ");
                 scanf("%d", &diamesouano);
 
                 if(diamesouano == 1)
                 {
                     while(p.diaNascimento > 29 || p.diaNascimento < 1)
                     {
-                        printf("Dia de nascimento v√°lido: ");
+                        printf("Dia de nascimento v·lido: ");
                         scanf("%d", &p.diaNascimento );
                     }
                     printf("\n");
@@ -564,7 +568,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.mesNascimento > 12 || p.mesNascimento < 1 || p.mesNascimento == 2)
                     {
-                        printf("M√™s de nascimento v√°lido: ");
+                        printf("MÍs de nascimento v·lido: ");
                         scanf("%d", &p.mesNascimento );
                     }
                 }
@@ -575,15 +579,15 @@ void inclui_paciente(FILE *f)
             if(p.diaNascimento > 30 || p.diaNascimento < 1)
             {
                 diamesouano = 0;
-                printf("\nN√£o existe o dia selecionado em Abril\n");
+                printf("\nN„o existe o dia selecionado em Abril\n");
                 printf("1 - mudar Dia\n");
-                printf("2 - mudar M√™s\n");
-                printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                printf("2 - mudar MÍs\n");
+                printf("Por favor, mude o dia ou o mÍs escolhido: ");
                 scanf("%d", &diamesouano);
 
                 while(!(diamesouano == 1 || diamesouano ==2))
                 {
-                    printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                    printf("Por favor, selecione uma opÁ„o v·lida: ");
                     scanf("%d", &diamesouano);
                 }
 
@@ -591,7 +595,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.diaNascimento > 30 || p.diaNascimento < 1)
                     {
-                        printf("Dia de nascimento v√°lido: ");
+                        printf("Dia de nascimento v·lido: ");
                         scanf("%d", &p.diaNascimento );
                     }
                     printf("\n");
@@ -601,7 +605,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.mesNascimento > 12 || p.mesNascimento < 1 || p.mesNascimento == 2 || p.mesNascimento == 4 || p.mesNascimento == 6 || p.mesNascimento == 9 || p.mesNascimento == 11)
                     {
-                        printf("M√™s de nascimento v√°lido: ");
+                        printf("MÍs de nascimento v·lido: ");
                         scanf("%d", &p.mesNascimento );
                     }
                     printf("\n");
@@ -613,15 +617,15 @@ void inclui_paciente(FILE *f)
             if(p.diaNascimento > 30 || p.diaNascimento < 1)
             {
                 diamesouano = 0;
-                printf("\nN√£o existe o dia selecionado em Junho\n");
+                printf("\nN„o existe o dia selecionado em Junho\n");
                 printf("1 - mudar Dia\n");
-                printf("2 - mudar M√™s\n");
-                printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                printf("2 - mudar MÍs\n");
+                printf("Por favor, mude o dia ou o mÍs escolhido: ");
                 scanf("%d", &diamesouano);
 
                 while(!(diamesouano == 1 || diamesouano ==2))
                 {
-                    printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                    printf("Por favor, selecione uma opÁ„o v·lida: ");
                     scanf("%d", &diamesouano);
                 }
 
@@ -629,7 +633,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.diaNascimento > 30 || p.diaNascimento < 1)
                     {
-                        printf("Dia de nascimento v√°lido: ");
+                        printf("Dia de nascimento v·lido: ");
                         scanf("%d", &p.diaNascimento );
                     }
                     printf("\n");
@@ -639,7 +643,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.mesNascimento > 12 || p.mesNascimento < 1 || p.mesNascimento == 2 || p.mesNascimento == 4 || p.mesNascimento == 6 || p.mesNascimento == 9 || p.mesNascimento == 11)
                     {
-                        printf("M√™s de nascimento v√°lido: ");
+                        printf("MÍs de nascimento v·lido: ");
                         scanf("%d", &p.mesNascimento );
                     }
                     printf("\n");
@@ -651,15 +655,15 @@ void inclui_paciente(FILE *f)
             if(p.diaNascimento > 30 || p.diaNascimento < 1)
             {
                 diamesouano = 0;
-                printf("\nN√£o existe o dia selecionado em Setembro\n");
+                printf("\nN„o existe o dia selecionado em Setembro\n");
                 printf("1 - mudar Dia\n");
-                printf("2 - mudar M√™s\n");
-                printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                printf("2 - mudar MÍs\n");
+                printf("Por favor, mude o dia ou o mÍs escolhido: ");
                 scanf("p", &diamesouano);
 
                 while(!(diamesouano == 1 || diamesouano ==2))
                 {
-                    printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                    printf("Por favor, selecione uma opÁ„o v·lida: ");
                     scanf("%d", &diamesouano);
                 }
 
@@ -667,7 +671,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.diaNascimento > 30 || p.diaNascimento < 1)
                     {
-                        printf("Dia de nascimento v√°lido: ");
+                        printf("Dia de nascimento v·lido: ");
                         scanf("%p", &p.diaNascimento );
                     }
                     printf("\n");
@@ -677,7 +681,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.mesNascimento > 12 ||p.mesNascimento < 1 || p.mesNascimento == 2 || p.mesNascimento == 4 || p.mesNascimento == 6 || p.mesNascimento == 9 || p.mesNascimento == 11)
                     {
-                        printf("M√™s de nascimento v√°lido: ");
+                        printf("MÍs de nascimento v·lido: ");
                         scanf("%d", &p.mesNascimento );
                     }
                     printf("\n");
@@ -689,15 +693,15 @@ void inclui_paciente(FILE *f)
             if(p.diaNascimento > 30 || p.diaNascimento < 1)
             {
                 diamesouano = 0;
-                printf("\nN√£o existe o dia selecionado em Novembro\n");
+                printf("\nN„o existe o dia selecionado em Novembro\n");
                 printf("1 - mudar Dia\n");
-                printf("2 - mudar M√™s\n");
-                printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                printf("2 - mudar MÍs\n");
+                printf("Por favor, mude o dia ou o mÍs escolhido: ");
                 scanf("%d", &diamesouano);
 
                 while(!(diamesouano == 1 || diamesouano ==2))
                 {
-                    printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                    printf("Por favor, selecione uma opÁ„o v·lida: ");
                     scanf("%d", &diamesouano);
                 }
 
@@ -705,7 +709,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.diaNascimento > 30 || p.diaNascimento < 1)
                     {
-                        printf("Dia de nascimento v√°lido: ");
+                        printf("Dia de nascimento v·lido: ");
                         scanf("%d", &p.diaNascimento );
                     }
                     printf("\n");
@@ -715,7 +719,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.mesNascimento > 12 || p.mesNascimento < 1 || p.mesNascimento == 2 || p.mesNascimento == 4 || p.mesNascimento == 6 || p.mesNascimento == 9 || p.mesNascimento == 11)
                     {
-                        printf("M√™s de nascimento v√°lido: ");
+                        printf("MÍs de nascimento v·lido: ");
                         scanf("%d", &p.mesNascimento );
                     }
                     printf("\n");
@@ -733,7 +737,7 @@ void inclui_paciente(FILE *f)
         {
             if(p.mesNascimento > 6)
             {
-                printf("\nCalma, esse dia ainda n√£o chegou! Digite outro ano: ");
+                printf("\nCalma, esse dia ainda n„o chegou! Digite outro ano: ");
                 scanf("%d", &p.anoNascimento );
             }
         }
@@ -756,7 +760,7 @@ void inclui_paciente(FILE *f)
                 {
                     while(p.anoNascimento == 2019)
                     {
-                        printf("\nCalma, esse dia ainda n√£o chegou! Digite outro ano: ");
+                        printf("\nCalma, esse dia ainda n„o chegou! Digite outro ano: ");
                         scanf("%d", &p.anoNascimento );
                     }
                 }
@@ -770,17 +774,17 @@ void inclui_paciente(FILE *f)
             {
                 if(p.diaNascimento > 28)
                 {
-                    printf("\n%d n√£o foi um ano bissexto, ent√£o, fevereiro teve 28 dias, portanto a data escolhida √© inv√°lida\n", p.anoNascimento);
+                    printf("\n%d n„o foi um ano bissexto, ent„o, fevereiro teve 28 dias, portanto a data escolhida È inv·lida\n", p.anoNascimento);
                     printf("1 - Mudar dia\n");
-                    printf("2 - Mudar m√™s\n");
+                    printf("2 - Mudar mÍs\n");
                     printf("3 - Mudar ano\n");
 
-                    printf("Por favor, mude o dia, o m√™s, ou ano escolhido: ");
+                    printf("Por favor, mude o dia, o mÍs, ou ano escolhido: ");
                     scanf("%d", &diamesouano);
 
                     while(!(diamesouano == 1 || diamesouano ==2 || diamesouano == 3))
                     {
-                        printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                        printf("Por favor, selecione uma opÁ„o v·lida: ");
                         scanf("%d", &diamesouano);
                     }
 
@@ -788,7 +792,7 @@ void inclui_paciente(FILE *f)
                     {
                         while(p.diaNascimento > 28 || p.diaNascimento < 1)
                         {
-                            printf("Dia de nascimento v√°lido: ");
+                            printf("Dia de nascimento v·lido: ");
                             scanf("%d", &p.diaNascimento );
                         }
                     }
@@ -797,7 +801,7 @@ void inclui_paciente(FILE *f)
                     {
                         while(p.mesNascimento > 12 || p.mesNascimento < 1 || p.mesNascimento == 2)
                         {
-                            printf("M√™s de nascimento v√°lido: ");
+                            printf("MÍs de nascimento v·lido: ");
                             scanf("%d", &p.mesNascimento );
                         }
                     }
@@ -806,7 +810,7 @@ void inclui_paciente(FILE *f)
                     {
                         while(p.anoNascimento > 2019 || p.anoNascimento < 1903 || p.anoNascimento % 4 != 0)
                         {
-                            printf("Ano de nascimento v√°lido: ");
+                            printf("Ano de nascimento v·lido: ");
                             scanf("%d", &p.anoNascimento );
                         }
                     }
@@ -837,15 +841,15 @@ void inclui_paciente(FILE *f)
             case 1:
                 system("CLS");
                 printf("\nPaciente: %s\n", p.nome);
-                printf("C√≥digo N¬∫: %d\n", p.codigo);
+                printf("CÛdigo N∫: %d\n", p.codigo);
                 printf("Telefone: %d\n", p.telefone);
-                printf("Endere√ßo: Rua %s, N¬∫%s, %s-%s\n", p.enderecoRua, p.enderecoNumero,p.enderecoBairro, p.enderecoCidade);
+                printf("EndereÁo: Rua %s, N∫%s, %s-%s\n", p.enderecoRua, p.enderecoNumero,p.enderecoBairro, p.enderecoCidade);
                 printf("Nascimento: %d/%d/%d\n\n", p.diaNascimento,p.mesNascimento, p.anoNascimento);
                 system("PAUSE");
                 system("CLS");
                 break;
             default:
-                printf("\nOp√ß√£o inv√°lida\n");
+                printf("\nOpÁ„o inv·lida\n");
                 system("PAUSE");
                 system("CLS");
                 break;
@@ -861,7 +865,7 @@ void inclui_paciente(FILE *f)
     }
     else
     {
-        printf("C√≥digo %d j√° existe no arquivo. Inclus√£o n√£o realizada!\n\n");
+        printf("CÛdigo %d j· existe no arquivo. Inclus„o n„o realizada!\n\n");
     }
 }
 
@@ -879,9 +883,9 @@ void imprime_consulta(FILE *f)
         fread(&c, sizeof(c),1, f);
         if(c.ativo == 2)
         {
-            printf("\nC√≥digo da Consulta: %d\n", c.codigo);
-            printf("C√≥digo do M√©dico: %d\n", c.codigoMedico);
-            printf("C√≥digo do Paciente: %d\n", c.codigoPaciente);
+            printf("\nCÛdigo da Consulta: %d\n", c.codigo);
+            printf("CÛdigo do MÈdico: %d\n", c.codigoMedico);
+            printf("CÛdigo do Paciente: %d\n", c.codigoPaciente);
             printf("Dia Marcado: %d/%d/%d as %dhr:%dmin\n", c.dia, c.mes, c.ano, c.hora, c.minutos);
             printf("\n");
         }
@@ -925,13 +929,13 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
     printf("\t\t\t\tCadastro de consultas");
     consulta c;
     //lendo os dados do teclado
-    printf("\nDigite o c√≥digo da consulta: ");
+    printf("\nDigite o cÛdigo da consulta: ");
     fflush(stdin);
     scanf("%d",&c.codigo);
 
     int posicao;
     posicao=localiza_consulta(f,c.codigo);
-    if (posicao==-1) //n√£o tnha codigo no arquivo
+    if (posicao==-1) //n„o tnha codigo no arquivo
     {
 
         char nomePaciente[50], nomeMedico[50];
@@ -945,7 +949,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
         {
             c.codigoPaciente = achou;
 
-            printf("\nDigite o nome do m√©dico: ");
+            printf("\nDigite o nome do mÈdico: ");
             fflush(stdin);
             gets(nomeMedico);
 
@@ -961,18 +965,18 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
 
                 while(c.dia > 31 || c.dia < 1)
                 {
-                    printf("\nDia inv√°lido, tente novamente\n");
+                    printf("\nDia inv·lido, tente novamente\n");
                     printf("Dia da consulta: ");
                     scanf("%d", &c.dia );
                 }
 
-                printf("M√™s da consulta: ");
+                printf("MÍs da consulta: ");
                 scanf("%d", &c.mes );
                 getchar();
                 while(c.mes > 12 || c.mes < 1)
                 {
-                    printf("\nM√™s inv√°lido, tente novamente\n");
-                    printf("M√™s da consulta: ");
+                    printf("\nMÍs inv·lido, tente novamente\n");
+                    printf("MÍs da consulta: ");
                     scanf("%d", &c.mes );
                 }
 
@@ -983,15 +987,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     if(c.dia > 29 || c.dia < 1)
                     {
                         diamesouano = 0;
-                        printf("\nN√£o existe o dia selecionado em Fevereiro\n");
+                        printf("\nN„o existe o dia selecionado em Fevereiro\n");
                         printf("1 - mudar Dia\n");
-                        printf("2 - mudar M√™s\n");
-                        printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                        printf("2 - mudar MÍs\n");
+                        printf("Por favor, mude o dia ou o mÍs escolhido: ");
                         scanf("%d", &diamesouano);
 
                         while(!(diamesouano == 1 || diamesouano ==2))
                         {
-                            printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                            printf("Por favor, selecione uma opÁ„o v·lida: ");
                             scanf("%d", &diamesouano);
                         }
 
@@ -999,7 +1003,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.dia > 29 || c.dia < 1)
                             {
-                                printf("Dia de consulta v√°lido: ");
+                                printf("Dia de consulta v·lido: ");
                                 scanf("%d", &c.dia );
                             }
                             printf("\n");
@@ -1009,7 +1013,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.mes > 12 || c.mes < 1 || c.mes == 2)
                             {
-                                printf("M√™s de consulta v√°lido: ");
+                                printf("MÍs de consulta v·lido: ");
                                 scanf("%d", &c.mes );
                             }
                         }
@@ -1020,15 +1024,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     if(c.dia > 30 || c.dia < 1)
                     {
                         diamesouano = 0;
-                        printf("\nN√£o existe o dia selecionado em Abril\n");
+                        printf("\nN„o existe o dia selecionado em Abril\n");
                         printf("1 - mudar Dia\n");
-                        printf("2 - mudar M√™s\n");
-                        printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                        printf("2 - mudar MÍs\n");
+                        printf("Por favor, mude o dia ou o mÍs escolhido: ");
                         scanf("%d", &diamesouano);
 
                         while(!(diamesouano == 1 || diamesouano ==2))
                         {
-                            printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                            printf("Por favor, selecione uma opÁ„o v·lida: ");
                             scanf("%d", &diamesouano);
                         }
 
@@ -1036,7 +1040,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.dia > 30 || c.dia < 1)
                             {
-                                printf("Dia de consulta v√°lido: ");
+                                printf("Dia de consulta v·lido: ");
                                 scanf("%d", &c.dia );
                             }
                             printf("\n");
@@ -1046,7 +1050,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.mes > 12 || c.mes < 1 || c.mes == 2 || c.mes == 4 || c.mes == 6 || c.mes == 9 || c.mes == 11)
                             {
-                                printf("M√™s de consulta v√°lido: ");
+                                printf("MÍs de consulta v·lido: ");
                                 scanf("%d", &c.mes );
                             }
                             printf("\n");
@@ -1058,15 +1062,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     if(c.dia > 30 || c.dia < 1)
                     {
                         diamesouano = 0;
-                        printf("\nN√£o existe o dia selecionado em Junho\n");
+                        printf("\nN„o existe o dia selecionado em Junho\n");
                         printf("1 - mudar Dia\n");
-                        printf("2 - mudar M√™s\n");
-                        printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                        printf("2 - mudar MÍs\n");
+                        printf("Por favor, mude o dia ou o mÍs escolhido: ");
                         scanf("%d", &diamesouano);
 
                         while(!(diamesouano == 1 || diamesouano ==2))
                         {
-                            printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                            printf("Por favor, selecione uma opÁ„o v·lida: ");
                             scanf("%d", &diamesouano);
                         }
 
@@ -1074,7 +1078,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.dia > 30 || c.dia < 1)
                             {
-                                printf("Dia de consulta v√°lido: ");
+                                printf("Dia de consulta v·lido: ");
                                 scanf("%d", &c.dia );
                             }
                             printf("\n");
@@ -1084,7 +1088,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.mes > 12 || c.mes < 1 || c.mes == 2 || c.mes == 4 || c.mes == 6 || c.mes == 9 || c.mes == 11)
                             {
-                                printf("M√™s de consulta v√°lido: ");
+                                printf("MÍs de consulta v·lido: ");
                                 scanf("%d", &c.mes );
                             }
                             printf("\n");
@@ -1096,15 +1100,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     if(c.dia > 30 || c.dia < 1)
                     {
                         diamesouano = 0;
-                        printf("\nN√£o existe o dia selecionado em Setembro\n");
+                        printf("\nN„o existe o dia selecionado em Setembro\n");
                         printf("1 - mudar Dia\n");
-                        printf("2 - mudar M√™s\n");
-                        printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                        printf("2 - mudar MÍs\n");
+                        printf("Por favor, mude o dia ou o mÍs escolhido: ");
                         scanf("%d", &diamesouano);
 
                         while(!(diamesouano == 1 || diamesouano ==2))
                         {
-                            printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                            printf("Por favor, selecione uma opÁ„o v·lida: ");
                             scanf("%d", &diamesouano);
                         }
 
@@ -1112,7 +1116,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.dia > 30 || c.dia < 1)
                             {
-                                printf("Dia de consulta v√°lido: ");
+                                printf("Dia de consulta v·lido: ");
                                 scanf("%d", &c.dia );
                             }
                             printf("\n");
@@ -1122,7 +1126,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.mes > 12 || c.mes < 1 || c.mes == 2 || c.mes == 4 || c.mes == 6 || c.mes == 9 || c.mes == 11)
                             {
-                                printf("M√™s de consulta v√°lido: ");
+                                printf("MÍs de consulta v·lido: ");
                                 scanf("%d", &c.mes );
                             }
                             printf("\n");
@@ -1134,15 +1138,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     if(c.dia > 30 || c.dia < 1)
                     {
                         diamesouano = 0;
-                        printf("\nN√£o existe o dia selecionado em Novembro\n");
+                        printf("\nN„o existe o dia selecionado em Novembro\n");
                         printf("1 - mudar Dia\n");
-                        printf("2 - mudar M√™s\n");
-                        printf("Por favor, mude o dia ou o m√™s escolhido: ");
+                        printf("2 - mudar MÍs\n");
+                        printf("Por favor, mude o dia ou o mÍs escolhido: ");
                         scanf("%d", &diamesouano);
 
                         while(!(diamesouano == 1 || diamesouano ==2))
                         {
-                            printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                            printf("Por favor, selecione uma opÁ„o v·lida: ");
                             scanf("%d", &diamesouano);
                         }
 
@@ -1150,7 +1154,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.dia > 30 || c.dia < 1)
                             {
-                                printf("Dia de consulta v√°lido: ");
+                                printf("Dia de consulta v·lido: ");
                                 scanf("%d", &c.dia );
                             }
                             printf("\n");
@@ -1160,7 +1164,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                         {
                             while(c.mes > 12 || c.mes < 1 || c.mes == 2 || c.mes == 4 || c.mes == 6 || c.mes == 9 || c.mes == 11)
                             {
-                                printf("M√™s de consulta v√°lido: ");
+                                printf("MÍs de consulta v·lido: ");
                                 scanf("%d", &c.mes );
                             }
                             printf("\n");
@@ -1178,7 +1182,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                 {
                     while(c.ano == 2019)
                     {
-                        printf("\nEsse dia j√° passou, digite outro ano: ");
+                        printf("\nEsse dia j· passou, digite outro ano: ");
                         scanf("%d", &c.ano );
                     }
                 }
@@ -1187,7 +1191,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                 {
                     if(c.ano < 2019)
                     {
-                        printf("\nEsse dia j√° passou, digite outro ano: ");
+                        printf("\nEsse dia j· passou, digite outro ano: ");
                         scanf("%d", &c.ano );
                     }
                 }
@@ -1198,17 +1202,17 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     {
                         if(c.dia > 28)
                         {
-                            printf("\n%d n√£o √© um ano bissexto, ent√£o, fevereiro teve 28 dias, portanto a data escolhida √© inv√°lida\n", c.ano);
+                            printf("\n%d n„o È um ano bissexto, ent„o, fevereiro teve 28 dias, portanto a data escolhida È inv·lida\n", c.ano);
                             printf("1 - Mudar dia\n");
-                            printf("2 - Mudar m√™s\n");
+                            printf("2 - Mudar mÍs\n");
                             printf("3 - Mudar ano\n");
 
-                            printf("Por favor, mude o dia, o m√™s, ou ano escolhido: ");
+                            printf("Por favor, mude o dia, o mÍs, ou ano escolhido: ");
                             scanf("%d", &diamesouano);
 
                             while(!(diamesouano == 1 || diamesouano ==2 || diamesouano == 3))
                             {
-                                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                                printf("Por favor, selecione uma opÁ„o v·lida: ");
                                 scanf("%d", &diamesouano);
                             }
 
@@ -1216,7 +1220,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                             {
                                 while(c.dia > 28 || c.dia < 1)
                                 {
-                                    printf("Dia de consulta v√°lido: ");
+                                    printf("Dia de consulta v·lido: ");
                                     scanf("%d", &c.dia );
                                 }
                             }
@@ -1225,7 +1229,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                             {
                                 while(c.mes > 12 || c.mes < 1 || c.mes == 2)
                                 {
-                                    printf("M√™s de consulta v√°lido: ");
+                                    printf("MÍs de consulta v·lido: ");
                                     scanf("%d", &c.mes );
                                 }
                             }
@@ -1234,7 +1238,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                             {
                                 while(c.ano > 2019 || c.ano < 1903 || c.ano % 4 != 0)
                                 {
-                                    printf("Ano de consulta v√°lido: ");
+                                    printf("Ano de consulta v·lido: ");
                                     scanf("%d", &c.ano );
                                 }
                             }
@@ -1243,13 +1247,13 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     }
                 }
 
-                printf("Digite o hor√°rio: ");
+                printf("Digite o hor·rio: ");
                 scanf("%d", &c.hora);
 
                 while(c.hora < 0 || c.hora > 24)
                 {
-                    printf("\nValor Inv√°lido\n");
-                    printf("Digite o hor√°rio: ");
+                    printf("\nValor Inv·lido\n");
+                    printf("Digite o hor·rio: ");
                     scanf("%d", &c.hora);
                 }
 
@@ -1258,7 +1262,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
 
                 while(c.minutos < 0 || c.minutos > 59)
                 {
-                    printf("\nValor Inv√°lido\n");
+                    printf("\nValor Inv·lido\n");
                     printf("Digite os minutos: ");
                     scanf("%d", &c.minutos);
                 }
@@ -1297,15 +1301,15 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
                     {
                     case 1:
                         system("CLS");
-                        printf("\nC√≥digo da Consulta: %d\n", c.codigo);
-                        printf("C√≥digo do M√©dico: %d\n", c.codigoMedico);
-                        printf("C√≥digo do Paciente: %d\n", c.codigoPaciente);
+                        printf("\nCÛdigo da Consulta: %d\n", c.codigo);
+                        printf("CÛdigo do MÈdico: %d\n", c.codigoMedico);
+                        printf("CÛdigo do Paciente: %d\n", c.codigoPaciente);
                         printf("Dia Marcado: %d/%d/%d as %dhr:%dmin\n", c.dia, c.mes, c.ano, c.hora, c.minutos);
                         system("PAUSE");
                         system("CLS");
                         break;
                     default:
-                        printf("\nOp√ß√£o inv√°lida\n");
+                        printf("\nOpÁ„o inv·lida\n");
                         system("PAUSE");
                         system("CLS");
                         break;
@@ -1322,7 +1326,7 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
     }
     else
     {
-        printf("C√≥digo %d j√° existe no arquivo. Inclus√£o n√£o realizada!\n", c.codigo);
+        printf("CÛdigo %d j· existe no arquivo. Inclus„o n„o realizada!\n", c.codigo);
         conferidor = 1;
     }
 }
@@ -1331,11 +1335,11 @@ void inclui_consulta(FILE *f, FILE *fp, FILE *fm)
 void verConsultasMedico(FILE *f, FILE *fm)
 {
     system("CLS");
-    printf("\t\t\t\tConsultas por m√©dico\n");
+    printf("\t\t\t\tConsultas por mÈdico\n");
     consulta c;
     int achoum;
     char nomeMedico[50];
-    printf("\nDigite o nome do m√©dico: ");
+    printf("\nDigite o nome do mÈdico: ");
     fflush(stdin);
     gets(nomeMedico);
     system("CLS");
@@ -1366,9 +1370,9 @@ void localiza_consulta_medico(FILE *f, int codigo)
             if(c.ativo == 2)
             {
                 achouMedico = 1;
-                printf("\nC√≥digo da Consulta: %d\n", c.codigo);
-                printf("C√≥digo do M√©dico: %d\n", c.codigoMedico);
-                printf("C√≥digo do Paciente: %d\n", c.codigoPaciente);
+                printf("\nCÛdigo da Consulta: %d\n", c.codigo);
+                printf("CÛdigo do MÈdico: %d\n", c.codigoMedico);
+                printf("CÛdigo do Paciente: %d\n", c.codigoPaciente);
                 printf("Dia Marcado: %d/%d/%d as %dhr:%dmin\n", c.dia, c.mes, c.ano, c.hora, c.minutos);
                 printf("\n");
             }
@@ -1420,9 +1424,9 @@ void localiza_consulta_paciente(FILE *f, int codigo)
             if(c.ativo == 2)
             {
                 achouPaciente = 1;
-                printf("\nC√≥digo da Consulta: %d\n", c.codigo);
-                printf("C√≥digo do M√©dico: %d\n", c.codigoMedico);
-                printf("C√≥digo do Paciente: %d\n", c.codigoPaciente);
+                printf("\nCÛdigo da Consulta: %d\n", c.codigo);
+                printf("CÛdigo do MÈdico: %d\n", c.codigoMedico);
+                printf("CÛdigo do Paciente: %d\n", c.codigoPaciente);
                 printf("Dia Marcado: %d/%d/%d as %dhr:%dmin\n", c.dia, c.mes, c.ano, c.hora, c.minutos);
                 printf("\n");
             }
@@ -1442,7 +1446,7 @@ void cancelarConsulta(FILE *f)
     system("CLS");
     printf("\t\t\t\tCancelar consulta\n");
     consulta c;
-    printf("\nDigite o c√≥digo da consulta a ser cancelada: ");
+    printf("\nDigite o cÛdigo da consulta a ser cancelada: ");
     fflush(stdin);
     scanf("%d", &c.codigo);
     zera_consulta(f, c.codigo);
@@ -1476,7 +1480,7 @@ void zera_consulta(FILE *f,int codigo)
 
     if(achou == 0)
     {
-        printf("\nConsulta n√£o encontrada\n");
+        printf("\nConsulta n„o encontrada\n");
     }
 
 }
@@ -1492,18 +1496,18 @@ void verConsultasDia(FILE *f)
 
     while(dia > 31 || dia < 1)
     {
-        printf("\nDia inv√°lido, tente novamente\n");
+        printf("\nDia inv·lido, tente novamente\n");
         printf("Dia da consulta: ");
         scanf("%d", &dia );
     }
 
-    printf("M√™s da consulta: ");
+    printf("MÍs da consulta: ");
     scanf("%d", &mes );
     getchar();
     while(mes > 12 || mes < 1)
     {
-        printf("\nM√™s inv√°lido, tente novamente\n");
-        printf("M√™s da consulta: ");
+        printf("\nMÍs inv·lido, tente novamente\n");
+        printf("MÍs da consulta: ");
         scanf("%d", &mes );
     }
 
@@ -1514,15 +1518,15 @@ void verConsultasDia(FILE *f)
         if(dia > 29 || dia < 1)
         {
             diamesouano = 0;
-            printf("\nN√£o existe o dia selecionado em Fevereiro\n");
+            printf("\nN„o existe o dia selecionado em Fevereiro\n");
             printf("1 - mudar Dia\n");
-            printf("2 - mudar M√™s\n");
-            printf("Por favor, mude o dia ou o m√™s escolhido: ");
+            printf("2 - mudar MÍs\n");
+            printf("Por favor, mude o dia ou o mÍs escolhido: ");
             scanf("%d", &diamesouano);
 
             while(!(diamesouano == 1 || diamesouano ==2))
             {
-                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                printf("Por favor, selecione uma opÁ„o v·lida: ");
                 scanf("%d", &diamesouano);
             }
 
@@ -1530,7 +1534,7 @@ void verConsultasDia(FILE *f)
             {
                 while(dia > 29 || dia < 1)
                 {
-                    printf("Dia de consulta v√°lido: ");
+                    printf("Dia de consulta v·lido: ");
                     scanf("%d", &dia );
                 }
                 printf("\n");
@@ -1540,7 +1544,7 @@ void verConsultasDia(FILE *f)
             {
                 while(mes > 12 || mes < 1 || mes == 2)
                 {
-                    printf("M√™s de consulta v√°lido: ");
+                    printf("MÍs de consulta v·lido: ");
                     scanf("%d", &mes );
                 }
             }
@@ -1551,15 +1555,15 @@ void verConsultasDia(FILE *f)
         if(dia > 30 || dia < 1)
         {
             diamesouano = 0;
-            printf("\nN√£o existe o dia selecionado em Abril\n");
+            printf("\nN„o existe o dia selecionado em Abril\n");
             printf("1 - mudar Dia\n");
-            printf("2 - mudar M√™s\n");
-            printf("Por favor, mude o dia ou o m√™s escolhido: ");
+            printf("2 - mudar MÍs\n");
+            printf("Por favor, mude o dia ou o mÍs escolhido: ");
             scanf("%d", &diamesouano);
 
             while(!(diamesouano == 1 || diamesouano ==2))
             {
-                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                printf("Por favor, selecione uma opÁ„o v·lida: ");
                 scanf("%d", &diamesouano);
             }
 
@@ -1567,7 +1571,7 @@ void verConsultasDia(FILE *f)
             {
                 while(dia > 30 || dia < 1)
                 {
-                    printf("Dia de consulta v√°lido: ");
+                    printf("Dia de consulta v·lido: ");
                     scanf("%d", &dia );
                 }
                 printf("\n");
@@ -1577,7 +1581,7 @@ void verConsultasDia(FILE *f)
             {
                 while(mes > 12 || mes < 1 || mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11)
                 {
-                    printf("M√™s de consulta v√°lido: ");
+                    printf("MÍs de consulta v·lido: ");
                     scanf("%d", &mes );
                 }
                 printf("\n");
@@ -1589,15 +1593,15 @@ void verConsultasDia(FILE *f)
         if(dia > 30 || dia < 1)
         {
             diamesouano = 0;
-            printf("\nN√£o existe o dia selecionado em Junho\n");
+            printf("\nN„o existe o dia selecionado em Junho\n");
             printf("1 - mudar Dia\n");
-            printf("2 - mudar M√™s\n");
-            printf("Por favor, mude o dia ou o m√™s escolhido: ");
+            printf("2 - mudar MÍs\n");
+            printf("Por favor, mude o dia ou o mÍs escolhido: ");
             scanf("%d", &diamesouano);
 
             while(!(diamesouano == 1 || diamesouano ==2))
             {
-                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                printf("Por favor, selecione uma opÁ„o v·lida: ");
                 scanf("%d", &diamesouano);
             }
 
@@ -1605,7 +1609,7 @@ void verConsultasDia(FILE *f)
             {
                 while(dia > 30 || dia < 1)
                 {
-                    printf("Dia de consulta v√°lido: ");
+                    printf("Dia de consulta v·lido: ");
                     scanf("%d", &dia );
                 }
                 printf("\n");
@@ -1615,7 +1619,7 @@ void verConsultasDia(FILE *f)
             {
                 while(mes > 12 || mes < 1 || mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11)
                 {
-                    printf("M√™s de consulta v√°lido: ");
+                    printf("MÍs de consulta v·lido: ");
                     scanf("%d", &mes );
                 }
                 printf("\n");
@@ -1627,15 +1631,15 @@ void verConsultasDia(FILE *f)
         if(dia > 30 || dia < 1)
         {
             diamesouano = 0;
-            printf("\nN√£o existe o dia selecionado em Setembro\n");
+            printf("\nN„o existe o dia selecionado em Setembro\n");
             printf("1 - mudar Dia\n");
-            printf("2 - mudar M√™s\n");
-            printf("Por favor, mude o dia ou o m√™s escolhido: ");
+            printf("2 - mudar MÍs\n");
+            printf("Por favor, mude o dia ou o mÍs escolhido: ");
             scanf("%d", &diamesouano);
 
             while(!(diamesouano == 1 || diamesouano ==2))
             {
-                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                printf("Por favor, selecione uma opÁ„o v·lida: ");
                 scanf("%d", &diamesouano);
             }
 
@@ -1643,7 +1647,7 @@ void verConsultasDia(FILE *f)
             {
                 while(dia > 30 || dia < 1)
                 {
-                    printf("Dia de consulta v√°lido: ");
+                    printf("Dia de consulta v·lido: ");
                     scanf("%d", &dia );
                 }
                 printf("\n");
@@ -1653,7 +1657,7 @@ void verConsultasDia(FILE *f)
             {
                 while(mes > 12 || mes < 1 || mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11)
                 {
-                    printf("M√™s de consulta v√°lido: ");
+                    printf("MÍs de consulta v·lido: ");
                     scanf("%d", &mes );
                 }
                 printf("\n");
@@ -1665,15 +1669,15 @@ void verConsultasDia(FILE *f)
         if(dia > 30 || dia < 1)
         {
             diamesouano = 0;
-            printf("\nN√£o existe o dia selecionado em Novembro\n");
+            printf("\nN„o existe o dia selecionado em Novembro\n");
             printf("1 - mudar Dia\n");
-            printf("2 - mudar M√™s\n");
-            printf("Por favor, mude o dia ou o m√™s escolhido: ");
+            printf("2 - mudar MÍs\n");
+            printf("Por favor, mude o dia ou o mÍs escolhido: ");
             scanf("%d", &diamesouano);
 
             while(!(diamesouano == 1 || diamesouano ==2))
             {
-                printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                printf("Por favor, selecione uma opÁ„o v·lida: ");
                 scanf("%d", &diamesouano);
             }
 
@@ -1681,7 +1685,7 @@ void verConsultasDia(FILE *f)
             {
                 while(dia > 30 || dia < 1)
                 {
-                    printf("Dia de consulta v√°lido: ");
+                    printf("Dia de consulta v·lido: ");
                     scanf("%d", &dia );
                 }
                 printf("\n");
@@ -1691,7 +1695,7 @@ void verConsultasDia(FILE *f)
             {
                 while(mes > 12 || mes < 1 || mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11)
                 {
-                    printf("M√™s de consulta v√°lido: ");
+                    printf("MÍs de consulta v·lido: ");
                     scanf("%d", &mes );
                 }
                 printf("\n");
@@ -1709,7 +1713,7 @@ void verConsultasDia(FILE *f)
     {
         while(ano == 2019)
         {
-            printf("\nEsse dia j√° passou, digite outro ano: ");
+            printf("\nEsse dia j· passou, digite outro ano: ");
             scanf("%d", &ano );
         }
     }
@@ -1718,7 +1722,7 @@ void verConsultasDia(FILE *f)
     {
         if(ano < 2019)
         {
-            printf("\nEsse dia j√° passou, digite outro ano: ");
+            printf("\nEsse dia j· passou, digite outro ano: ");
             scanf("%d", &ano );
         }
     }
@@ -1729,17 +1733,17 @@ void verConsultasDia(FILE *f)
         {
             if(dia > 28)
             {
-                printf("\n%d n√£o √© um ano bissexto, ent√£o, fevereiro teve 28 dias, portanto a data escolhida √© inv√°lida\n", ano);
+                printf("\n%d n„o È um ano bissexto, ent„o, fevereiro teve 28 dias, portanto a data escolhida È inv·lida\n", ano);
                 printf("1 - Mudar dia\n");
-                printf("2 - Mudar m√™s\n");
+                printf("2 - Mudar mÍs\n");
                 printf("3 - Mudar ano\n");
 
-                printf("Por favor, mude o dia, o m√™s, ou ano escolhido: ");
+                printf("Por favor, mude o dia, o mÍs, ou ano escolhido: ");
                 scanf("%d", &diamesouano);
 
                 while(!(diamesouano == 1 || diamesouano ==2 || diamesouano == 3))
                 {
-                    printf("Por favor, selecione uma op√ß√£o v√°lida: ");
+                    printf("Por favor, selecione uma opÁ„o v·lida: ");
                     scanf("%d", &diamesouano);
                 }
 
@@ -1747,7 +1751,7 @@ void verConsultasDia(FILE *f)
                 {
                     while(dia > 28 || dia < 1)
                     {
-                        printf("Dia de consulta v√°lido: ");
+                        printf("Dia de consulta v·lido: ");
                         scanf("%d", &dia );
                     }
                 }
@@ -1756,7 +1760,7 @@ void verConsultasDia(FILE *f)
                 {
                     while(mes > 12 || mes < 1 || mes == 2)
                     {
-                        printf("M√™s de consulta v√°lido: ");
+                        printf("MÍs de consulta v·lido: ");
                         scanf("%d", &mes );
                     }
                 }
@@ -1765,7 +1769,7 @@ void verConsultasDia(FILE *f)
                 {
                     while(ano > 2019 || ano < 1903 || ano % 4 != 0)
                     {
-                        printf("Ano de consulta v√°lido: ");
+                        printf("Ano de consulta v·lido: ");
                         scanf("%d", &ano );
                     }
                 }
@@ -1798,9 +1802,9 @@ void localiza_consulta_dia(FILE *f, int dia, int mes, int ano)
                 if(c.ano == ano)
                 {
                     achou++;
-                    printf("\nC√≥digo da Consulta: %d\n", c.codigo);
-                    printf("C√≥digo do M√©dico: %d\n", c.codigoMedico);
-                    printf("C√≥digo do Paciente: %d\n", c.codigoPaciente);
+                    printf("\nCÛdigo da Consulta: %d\n", c.codigo);
+                    printf("CÛdigo do MÈdico: %d\n", c.codigoMedico);
+                    printf("CÛdigo do Paciente: %d\n", c.codigoPaciente);
                     printf("Dia Marcado: %d/%d/%d as %dhr:%dmin\n", c.dia, c.mes, c.ano, c.hora, c.minutos);
                     printf("\n");
                 }
@@ -1812,6 +1816,6 @@ void localiza_consulta_dia(FILE *f, int dia, int mes, int ano)
 
     if(achou == 0)
     {
-        printf("\nN√£o existem consultas nesse dia\n");
+        printf("\nN„o existem consultas nesse dia\n");
     }
 }
